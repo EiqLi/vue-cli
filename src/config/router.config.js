@@ -14,18 +14,18 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/classification/CustomerInquiry',
+    redirect: '/classification/customer-inquiry',
     children: [
       // classification
       {
         path: '/classification',
         name: 'classification',
         component: RouteView,
-        redirect: '/classification/CustomerInquiry',
+        redirect: '/classification/customer-inquiry',
         meta: { title: '分类查询', keepAlive: true, icon: 'profile' },
         children: [
           {
-            path: '/classification/CustomerInquiry',
+            path: '/classification/customer-inquiry',
             name: 'CustomerInquiry',
             component: () => import('@/views/classification/CustomerInquiry'),
             meta: { title: '客户查询', keepAlive: false }

@@ -14,8 +14,42 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/dashboard/workplace',
+    redirect: '/classification/CustomerInquiry',
     children: [
+      // classification
+      {
+        path: '/classification',
+        name: 'classification',
+        component: RouteView,
+        redirect: '/classification/CustomerInquiry',
+        meta: { title: '分类查询', keepAlive: true, icon: 'profile' },
+        children: [
+          {
+            path: '/classification/CustomerInquiry',
+            name: 'CustomerInquiry',
+            component: () => import('@/views/classification/CustomerInquiry'),
+            meta: { title: '客户查询', keepAlive: false }
+          },
+          {
+            path: '/classification/TagQuery',
+            name: 'TagQuery',
+            component: () => import('@/views/classification/TagQuery'),
+            meta: { title: '标签查询', keepAlive: false }
+          },
+          {
+            path: '/classification/CustomerGroupQuery',
+            name: 'CustomerGroupQuery',
+            component: () => import('@/views/classification/CustomerGroupQuery'),
+            meta: { title: '客群查询', keepAlive: false }
+          },
+          {
+            path: '/classification/VehicleQuery',
+            name: 'VehicleQuery',
+            component: () => import('@/views/classification/VehicleQuery'),
+            meta: { title: '车辆查询', keepAlive: false }
+          }
+        ]
+      },
       // dashboard
       {
         path: '/dashboard',
@@ -44,7 +78,6 @@ export const asyncRouterMap = [
           }
         ]
       },
-
       // forms
       {
         path: '/form',
@@ -257,28 +290,6 @@ export const asyncRouterMap = [
                 meta: { title: '新消息通知', hidden: true, keepAlive: true, permission: [ 'user' ] }
               }
             ]
-          }
-        ]
-      },
-      // newPages
-      {
-        path: '/newPages',
-        name: 'newPages',
-        component: RouteView,
-        redirect: '/newPages/newPage',
-        meta: { title: '测试专用', keepAlive: true, icon: 'profile', permission: [ 'dashboard' ] },
-        children: [
-          {
-            path: '/newPages/newPage',
-            name: 'newPage',
-            component: () => import('@/views/newPages/newPage'),
-            meta: { title: '测试专用', keepAlive: false, permission: [ 'dashboard' ] }
-          },
-          {
-            path: '/newPages/newPage',
-            name: 'newPage',
-            component: () => import('@/views/newPages/newPage'),
-            meta: { title: '测试专用', permission: [ 'dashboard' ] }
           }
         ]
       },

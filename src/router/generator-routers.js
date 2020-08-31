@@ -18,6 +18,12 @@ const constantRouterComponents = {
   'Workplace': () => import('@/views/dashboard/Workplace'),
   'Analysis': () => import('@/views/dashboard/Analysis'),
 
+  // classification
+  'CustomerGroupQuery': () => ('@/views/classification/CustomerGroupQuery'),
+  'CustomerInquiry': () => ('@/views/classification/CustomerInquiry'),
+  'TagQuery': () => ('@/views/classification/TagQuery'),
+  'VehicleQuery': () => ('@/views/classification/VehicleQuery'),
+
   // form
   'BasicForm': () => import('@/views/form/basicForm'),
   'StepForm': () => import('@/views/form/stepForm/StepForm'),
@@ -50,10 +56,8 @@ const constantRouterComponents = {
   'SecuritySettings': () => import('@/views/account/settings/Security'),
   'CustomSettings': () => import('@/views/account/settings/Custom'),
   'BindingSettings': () => import('@/views/account/settings/Binding'),
-  'NotificationSettings': () => import('@/views/account/settings/Notification'),
+  'NotificationSettings': () => import('@/views/account/settings/Notification')
 
-  // newPages
-  'newPages': () => import('@/views/newPages/newPage')
   // 'TestWork': () => import(/* webpackChunkName: "TestWork" */ '@/views/dashboard/TestWork')
 }
 
